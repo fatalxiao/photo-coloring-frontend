@@ -8,7 +8,7 @@ module.exports = {
 
     // 开发环境
     'development': {
-        port: 3010,
+        port: 4010,
         srcRoot: path.resolve(__dirname, '../src'),
         index: path.resolve(__dirname, '../src/index.html'),
         assetsVirtualRoot: path.posix && path.posix.join('/', 'static'),
@@ -28,7 +28,7 @@ module.exports = {
 
     // production 打包环境
     'production': {
-        port: 3400,
+        port: 4400,
         index: path.resolve(__dirname, '../dist/dist-prod/dist/index.html'),
         rootDirectory: 'dist/dist-prod',
         assetsDirectory: 'dist/dist-prod/dist',
