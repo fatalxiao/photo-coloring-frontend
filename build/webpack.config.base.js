@@ -47,17 +47,8 @@ module.exports = {
             'scss': resolve('src/assets/scss'),
             'icons': resolve('src/assets/icons'),
             'images': resolve('src/assets/images'),
-            'messages': resolve('src/assets/messages'),
-            'stylesheets': resolve('src/assets/stylesheets'),
-            'containers': resolve('src/containers'),
-            'components': resolve('src/components'),
-            'customized': resolve('src/customized'),
-            'reduxes': resolve('src/reduxes'),
             'statics': resolve('src/statics'),
             'vendors': resolve('src/vendors'),
-
-            'feedManager': resolve('src/assets/scss/containers/app/modules/feedManager'),
-            'biddingBudget': resolve('src/assets/scss/containers/app/modules/biddingBudget'),
 
             'test': resolve('test')
 
