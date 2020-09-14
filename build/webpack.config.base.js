@@ -61,6 +61,9 @@ module.exports = {
             use: 'happypack/loader?id=js',
             include: [resolve('src')]
         }, {
+            test: /\.html?$/,
+            loader: 'html-loader'
+        }, {
             test: /\.(png|jpe?g|gif|svg|cur|ico)(\?.*)?$/,
             loader: 'url-loader',
             query: {
