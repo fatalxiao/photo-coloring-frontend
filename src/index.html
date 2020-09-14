@@ -10,9 +10,42 @@
     </head>
     <body>
         <div class="container">
-            <div class="card">
-                <div class="card-title">Your Selfie Here</div>
+
+            <div id="source"
+                 class="jumbotron card">
+                <h1 class="display-4">Your Selfie Here</h1>
+                <p class="lead">
+                    <img id="img-selfie"
+                         class="img-selfie"
+                         src="./assets/image/selfie_example.jpg"/>
+                </p>
+                <p>
+                    <a class="btn btn-lg btn-success submit-button"
+                       role="button"
+                       href="javascript:void(0)">
+                        Take A Selfie
+                    </a>
+                </p>
+                <p>
+                    <a class="btn btn-lg btn-info submit-button"
+                       role="button"
+                       href="javascript:void(0)">
+                        Upload Photo
+                    </a>
+                </p>
             </div>
+
+            <div id="result"
+                 class="jumbotron card">
+                <h1 class="display-4">Your Photo Here</h1>
+                <p class="lead err-msg"></p>
+                <p class="lead">
+                    <img id="img-photo"
+                         class="img-selfie"
+                         src="loading.gif">
+                </p>
+            </div>
+
         </div>
     </body>
 </html>
