@@ -19,15 +19,17 @@ import 'scss/CircularLoading.scss';
 function init() {
     initTakeASelfieButton();
     initUploadPhotoButton();
+    initImageInput();
 }
 
 /**
  * 初始化 Take A Selfie 按钮
  */
 function initTakeASelfieButton() {
-    const takeASelfieButton = $('#source .btn-success');
+    const takeASelfieButton = $('#take-a-selfie-button');
     takeASelfieButton.click(() => {
-        console.log(111);
+        selectImage();
+        // getColoringImg();
     });
 }
 
@@ -35,10 +37,36 @@ function initTakeASelfieButton() {
  * 初始化 Upload Photo 按钮
  */
 function initUploadPhotoButton() {
-    const uploadPhotoButton = $('#source .btn-info');
+    const uploadPhotoButton = $('#upload-photo');
     uploadPhotoButton.click(() => {
+        selectImage();
+        // scrollToResultCard();
+        // getColoringImg();
+    });
+}
 
+/**
+ * 选择图片
+ */
+function selectImage() {
+    const imageInput = $('#image-select-input');
+    imageInput[0].click();
+}
+
+/**
+ * 初始化 Upload Photo 按钮
+ */
+function initImageInput() {
+    const imageInput = $('#image-select-input');
+    imageInput.change(e => {
+
+        if (!e) {
+            return;
+        }
+
+        $('#img-selfie').attr('src', URL.createObjectURL(e.target.files[0]));
         scrollToResultCard();
+        getColoringImg();
 
     });
 }
@@ -51,6 +79,23 @@ function scrollToResultCard() {
     $('html, body').stop().animate({
         scrollTop: resultCard.offset().top
     }, 250);
+}
+
+function getColoringImg() {
+    $.ajax({
+        type: 'POST',
+        url: 'http://api.laojiu.ink/api/img/color/upload_and_color',
+        data: new FormData($('#image-select-form')[0]),
+        processData: false,
+        contentType: 'multipart/form-data; charset=UTF-8',
+        dataType: 'json',
+        success: (data, textStatus) => {
+
+        },
+        error: (data, textStatus) => {
+
+        }
+    });
 }
 
 $(() => {

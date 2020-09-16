@@ -2,6 +2,7 @@
  * @file card.scss
  * @author liangxiaojun(liangxiaojun@derbysoft.com)
  */
+@import "./common.scss";
 
 .card {
     text-align: center;
@@ -22,6 +23,10 @@
         height: 600px;
         line-height: 664px;
         background: #e5eff1;
+    }
+
+    .hidden-input {
+        @include invisible;
     }
 
     &#result {
