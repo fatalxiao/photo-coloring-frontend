@@ -5,9 +5,8 @@ const fs = require('fs'),
     startCase = require('lodash/startCase'),
     log = require('friendly-errors-webpack-plugin/src/output'),
 
-    config = require('../config.js'),
     webpackConfig = require('./webpack.config.prod.js'),
-    {fsExistsSync, copyRecursionSync, rmRecursionSync, installDependencies} = require('../utils.js'),
+    {fsExistsSync, rmRecursionSync} = require('../utils.js'),
 
     env = process.env.NODE_ENV,
     name = 'photo-coloring-frontend',
@@ -70,14 +69,6 @@ webpack(webpackConfig, async (err, stats) => {
 
         // make temp dir
         fs.mkdirSync(path);
-
-        // copy files
-        copyRecursionSync(config[env].rootDirectory, path, ['node_modules', '.DS_Store']);
-
-        // 安装 npm 依赖
-        log.title('info', 'WAIT', 'Installing Dependencies...');
-        await installDependencies(path);
-        log.title('success', 'DONE', 'Install Dependencies complete');
 
         // 打 zip 包
         const output = fs.createWriteStream(zipPath),

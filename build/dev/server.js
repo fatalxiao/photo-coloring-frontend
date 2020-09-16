@@ -2,21 +2,18 @@ const os = require('os'),
     chokidar = require('chokidar'),
     open = require('open'),
     webpack = require('webpack'),
-    {createProxyMiddleware} = require('http-proxy-middleware'),
+    express = require('express'),
     history = require('connect-history-api-fallback'),
     log = require('friendly-errors-webpack-plugin/src/output'),
+    webpackConfig = require('./webpack.config.dev.js'),
 
     config = require('../config.js'),
 
     port = process.env.PORT || config.development.port,
     uri = 'http://localhost:' + port,
 
-    express = require('express'),
     app = express(),
-
-    webpackConfig = require('./webpack.config.dev.js'),
     compiler = webpack(webpackConfig),
-
     devMiddleware = require('webpack-dev-middleware')(compiler, {
         publicPath: webpackConfig.output.publicPath,
         logLevel: 'error'
