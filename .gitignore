@@ -14,43 +14,5 @@ node_modules
 .sass-cache
 package-lock.json
 
-# Dist directories
-/dist/dist-dev/dist
-/dist/dist-test/dist
-/dist/dist-test-report/dist
-/dist/dist-test-cross-channel/dist
-/dist/dist-test-tag/dist
-/dist/dist-test-feed/dist
-/dist/dist-demo/dist
-/dist/dist-staging/dist
-/dist/dist-prod/dist
-
-# Temp Dist directories
-/dplatform-click-web-dev
-/dplatform-click-web-test
-/dplatform-click-web-testing-report
-/dplatform-click-web-testing-cross-channel
-/dplatform-click-web-testing-tag
-/dplatform-click-web-testing-feed
-/dplatform-click-web-demo
-/dplatform-click-web
-
 # Dist package file
-/dplatform-click-web-dev.zip
-/dplatform-click-web-dev.tar.gz
-/dplatform-click-web-test.zip
-/dplatform-click-web-test.tar.gz
-/dplatform-click-web-testing-report.zip
-/dplatform-click-web-testing-report.tar.gz
-/dplatform-click-web-testing-cross-channel.zip
-/dplatform-click-web-testing-cross-channel.tar.gz
-/dplatform-click-web-testing-tag.zip
-/dplatform-click-web-testing-tag.tar.gz
-/dplatform-click-web-testing-feed.zip
-/dplatform-click-web-testing-feed.tar.gz
-/dplatform-click-web-staging.zip
-/dplatform-click-web-staging.tar.gz
-/dplatform-click-web-demo.zip
-/dplatform-click-web-demo.tar.gz
-/dplatform-click-web.zip
-/dplatform-click-web.tar.gz
+photo-coloring-frontend.zip
