@@ -28,6 +28,7 @@
 /* card */
 .card {
     text-align: center;
+    margin-top: 2rem;
 }
 
 .card .img-selfie {

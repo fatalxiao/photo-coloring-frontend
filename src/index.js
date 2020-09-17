@@ -11,10 +11,8 @@ function init() {
  * 初始化 Take A Selfie 按钮
  */
 function initTakeASelfieButton() {
-    const takeASelfieButton = $('#take-a-selfie-button');
-    takeASelfieButton.click(function () {
+    $('#take-a-selfie-button').click(function () {
         selectImage();
-        // getColoringImg();
     });
 }
 
@@ -22,11 +20,8 @@ function initTakeASelfieButton() {
  * 初始化 Upload Photo 按钮
  */
 function initUploadPhotoButton() {
-    const uploadPhotoButton = $('#upload-photo');
-    uploadPhotoButton.click(function () {
+    $('#upload-photo').click(function () {
         selectImage();
-        // scrollToResultCard();
-        // getColoringImg();
     });
 }
 
@@ -35,15 +30,14 @@ function initUploadPhotoButton() {
  */
 function selectImage() {
     const imageInput = $('#image-select-input');
-    imageInput[0].click();
+    imageInput && imageInput[0] && imageInput[0].click();
 }
 
 /**
  * 初始化 Upload Photo 按钮
  */
 function initImageInput() {
-    const imageInput = $('#image-select-input');
-    imageInput.change(function (e) {
+    $('#image-select-input').change(function (e) {
 
         if (!e) {
             return;
