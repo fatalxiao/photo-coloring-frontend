@@ -1,19 +1,4 @@
 /**
- * @file index.js
- * @author liangxiaojun(liangxiaojun@derbysoft.com)
- */
-
-// Vendors
-import $ from 'jquery';
-
-// Styles
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'scss/index.scss';
-import 'scss/Container.scss';
-import 'scss/Card.scss';
-import 'scss/CircularLoading.scss';
-
-/**
  * 初始化
  */
 function init() {
@@ -27,7 +12,7 @@ function init() {
  */
 function initTakeASelfieButton() {
     const takeASelfieButton = $('#take-a-selfie-button');
-    takeASelfieButton.click(() => {
+    takeASelfieButton.click(function () {
         selectImage();
         // getColoringImg();
     });
@@ -38,7 +23,7 @@ function initTakeASelfieButton() {
  */
 function initUploadPhotoButton() {
     const uploadPhotoButton = $('#upload-photo');
-    uploadPhotoButton.click(() => {
+    uploadPhotoButton.click(function () {
         selectImage();
         // scrollToResultCard();
         // getColoringImg();
@@ -58,7 +43,7 @@ function selectImage() {
  */
 function initImageInput() {
     const imageInput = $('#image-select-input');
-    imageInput.change(e => {
+    imageInput.change(function (e) {
 
         if (!e) {
             return;
@@ -90,15 +75,15 @@ function getColoringImg() {
         processData: false,
         contentType: 'multipart/form-data; charset=UTF-8',
         dataType: 'json',
-        success: (data, textStatus) => {
+        success: function (data, textStatus) {
 
         },
-        error: (data, textStatus) => {
+        error: function (data, textStatus) {
 
         }
     });
 }
 
-$(() => {
+$(function () {
     init();
 });

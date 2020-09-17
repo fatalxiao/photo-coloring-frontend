@@ -8,6 +8,9 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
+        <link rel="stylesheet" href="index.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+
     </head>
     <body>
         <div class="container">
@@ -20,12 +23,12 @@
                 <p class="lead">
                     <img id="img-selfie"
                          class="img-selfie"
-                         src="./assets/image/selfie_example.jpg"/>
+                         src="example.jpg"/>
                 </p>
                 <form id="image-select-form"
                       action="">
                     <input id="image-select-input"
-                           class="hidden-input"
+                           class="invisible"
                            type="file"
                            name="file"/>
                 </form>
@@ -37,14 +40,6 @@
                         Take A Selfie
                     </a>
                 </p>
-                <!--                <p>-->
-                <!--                    <a id="upload-photo"-->
-                <!--                       class="btn btn-lg btn-info submit-button"-->
-                <!--                       role="button"-->
-                <!--                       href="javascript:void(0)">-->
-                <!--                        Upload Photo-->
-                <!--                    </a>-->
-                <!--                </p>-->
             </div>
 
             <div id="result"
@@ -54,7 +49,7 @@
                 <p class="lead">
 
                 <div class="loading-wrapper">
-                    <div class="circular-loading">
+                    <div class="loading">
                         <div class="spinner">
                             <div class="circle left">
                                 <div class="solid"></div>
@@ -73,5 +68,9 @@
             </div>
 
         </div>
+
+        <script type="application/javascript" src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+        <script type="application/javascript" src="index.js"></script>
+
     </body>
 </html>
