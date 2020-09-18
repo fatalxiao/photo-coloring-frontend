@@ -5,6 +5,7 @@ function init() {
     initTakeASelfieButton();
     initUploadPhotoButton();
     initImageInput();
+    initResultImg();
 }
 
 /**
@@ -44,9 +45,22 @@ function initImageInput() {
         }
 
         $('#img-selfie').attr('src', URL.createObjectURL(e.target.files[0]));
-        scrollToResultCard();
+        $('#result .err-msg').hide();
+        $('#img-result').addClass('invisible');
+        $('#result .loading-wrapper').show();
         getColoringImg();
+        scrollToResultCard();
 
+    });
+}
+
+/**
+ * 初始化结果图片，加载成功后隐藏 loading
+ */
+function initResultImg() {
+    $('#img-result').on('load', function () {
+        $('#result .loading-wrapper').hide();
+        $(this).removeClass('invisible');
     });
 }
 
@@ -54,29 +68,56 @@ function initImageInput() {
  * 滚动到 result card
  */
 function scrollToResultCard() {
-    const resultCard = $('#result').show();
+
+    const resultCard = $('#result').show(),
+        loadingWrapper = $('#result .loading-wrapper');
+
+    loadingWrapper.height(loadingWrapper.width());
+
     $('html, body').stop().animate({
         scrollTop: resultCard.offset().top
     }, 250);
+
 }
 
+/**
+ * 调用接口
+ */
 function getColoringImg() {
     $.ajax({
         type: 'POST',
-        // url: 'http://api.laojiu.ink/api/img/color/upload_and_color',
-        url: 'http://100.81.2.252:8001/api/img/color/upload_and_color',
+        url: 'http://api.laojiu.ink/api/img/color/upload_and_color',
         data: new FormData($('#image-select-form')[0]),
         processData: false,
-        // contentType: 'multipart/form-data; charset=UTF-8',
         contentType: false,
         dataType: 'json',
-        success: function (data, textStatus) {
-
-        },
-        error: function (data, textStatus) {
-
-        }
+        success: getColoringImgSuccess,
+        error: getColoringImgFailure
     });
+}
+
+/**
+ * 调用接口成功
+ * @param data
+ * @param textStatus
+ */
+function getColoringImgSuccess(data) {
+
+    if (!data || data.status_code !== 200 || !data.img_url) {
+        return getColoringImgFailure(data);
+    }
+
+    $('#img-result').attr('src', data.img_url);
+
+}
+
+/**
+ * 调用接口失败
+ * @param data
+ * @param textStatus
+ */
+function getColoringImgFailure(data) {
+    $('#result .err-msg').show();
 }
 
 $(function () {
