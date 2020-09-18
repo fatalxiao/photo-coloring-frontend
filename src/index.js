@@ -67,7 +67,8 @@ function getColoringImg() {
         url: 'http://100.81.2.252:8001/api/img/color/upload_and_color',
         data: new FormData($('#image-select-form')[0]),
         processData: false,
-        contentType: 'multipart/form-data; charset=UTF-8',
+        // contentType: 'multipart/form-data; charset=UTF-8',
+        contentType: false,
         dataType: 'json',
         success: function (data, textStatus) {
 
